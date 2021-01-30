@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.bit.emp.mapper.empMapper">
+	<select id="getListMgr" resultType="edu.bit.emp.VO.empVo">
+		<![CDATA[
+			select m.empno, m.ename from emp e, emp m where e.mgr=m.empno group by m.ename, m.empno
+		]]>
+	</select>
+	
+	<select id="getListDep" resultType="edu.bit.emp.VO.deptVO">
+		<![CDATA[
+			select dname,deptno from dept GROUP BY dname,deptno
+		]]>
+	</select>
+	
+	<select id="getList" resultType="edu.bit.emp.VO.empVo">
+		<![CDATA[
+			select * from emp
+		]]>
+	</select>
+	
+	</mapper>
